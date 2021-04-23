@@ -31,6 +31,13 @@
 		</repository>
 	</distributionManagement>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<github.global.server>github</github.global.server>
@@ -116,6 +123,31 @@
 			<groupId>com.apicatalog</groupId>
 			<artifactId>titanium-json-ld</artifactId>
 			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>jakarta.json</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.upokecenter</groupId>
+			<artifactId>cbor</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.multiformats</groupId>
+			<artifactId>java-multibase</artifactId>
+			<version>v1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.leonard</groupId>
+			<artifactId>base58</artifactId>
+			<version>0.0.2</version>
 		</dependency>
 	</dependencies>
 
