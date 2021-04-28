@@ -2,7 +2,6 @@ package com.danubetech.cborld;
 
 import com.apicatalog.jsonld.loader.DocumentLoader;
 import com.danubetech.cborld.codecs.*;
-import com.danubetech.cborld.util.Aliases;
 import com.danubetech.cborld.util.Context;
 import com.danubetech.cborld.util.TermInfo;
 import com.danubetech.cborld.util.TermInfoAndValue;
@@ -161,7 +160,7 @@ public class Decompressor extends Transformer {
                     obj.put(term, ((List) value).stream().map((ivalue) -> {
                         String decoded = new VocabTermDecoder(ivalue, Decompressor.this).decode();
                         return decoded != null ? decoded : ivalue;
-                    }));
+                    }).collect(Collectors.toCollection(ArrayList::new)));
                 } else {
                     String decoded = new VocabTermDecoder(value, Decompressor.this).decode();
                     obj.put(term, decoded != null ? decoded : value);
