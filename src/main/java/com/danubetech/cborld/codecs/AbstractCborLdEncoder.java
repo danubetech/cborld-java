@@ -3,7 +3,7 @@ package com.danubetech.cborld.codecs;
 import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 
-public abstract class AbstractCborLdEncoder <T> implements CborLdEncoder<T> {
+public abstract class AbstractCborLdEncoder<T> implements CborLdEncoder<T> {
 
     protected T value;
     protected Transformer transformer;

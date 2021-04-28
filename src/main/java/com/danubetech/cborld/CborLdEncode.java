@@ -1,6 +1,5 @@
 package com.danubetech.cborld;
 
-import com.apicatalog.jsonld.document.JsonDocument;
 import com.apicatalog.jsonld.loader.DocumentLoader;
 import com.upokecenter.cbor.CBORObject;
 
@@ -22,7 +21,7 @@ public class CborLdEncode {
         // 11001 = 25, 16-bit tag size (65536 possible values)
         // 0x05 = always the first 8-bits of a CBOR-LD tag
         // compressionMode = last 8-bits of a CBOR-LD tag indicating compression type
-        byte[] prefix = new byte[] { (byte) 0xd9, (byte) 0x05, (byte) compressionMode };
+        byte[] prefix = new byte[]{(byte) 0xd9, (byte) 0x05, (byte) compressionMode};
         ByteArrayOutputStream suffix = new ByteArrayOutputStream();
 
         if (compressionMode == 0) {
@@ -49,6 +48,6 @@ public class CborLdEncode {
 
     public static byte[] encode(Map<String, Object> jsonLdDocument, DocumentLoader documentLoader) throws IOException {
 
-        return encode(jsonLdDocument, documentLoader, new HashMap<String, Integer> (), 1);
+        return encode(jsonLdDocument, documentLoader, new HashMap<String, Integer>(), 1);
     }
 }

@@ -5,10 +5,6 @@ import com.danubetech.cborld.util.TermInfo;
 import com.google.api.client.util.DateTime;
 import com.upokecenter.cbor.CBORObject;
 
-import java.io.IOException;
-import java.sql.Date;
-import java.util.Map;
-
 public class XsdDateEncoder extends AbstractCborLdEncoder<String> {
 
     public XsdDateEncoder(String value, Transformer transformer, TermInfo termInfo) {
@@ -19,7 +15,7 @@ public class XsdDateEncoder extends AbstractCborLdEncoder<String> {
         long secondsSinceEpoch = (long) Math.floor(((double) parsed) / 1000);
         String dateString = new DateTime(parsed * 1000).toStringRfc3339();
         String expectedDate = dateString.substring(0, dateString.indexOf('T'));
-        if (! this.value.equals(expectedDate)) {
+        if (!this.value.equals(expectedDate)) {
             // compression would be lossy, do not compress
             return new EncodedBytes(CBORObject.FromObject(this.value).EncodeToBytes());
         }

@@ -12,7 +12,7 @@ public class UriEncoder extends AbstractCborLdEncoder<String> {
     public static final Map<String, Class<? extends CborLdEncoder<String>>> SCHEME_TO_ENCODER;
 
     static {
-        SCHEME_TO_ENCODER = new HashMap<> ();
+        SCHEME_TO_ENCODER = new HashMap<>();
         SCHEME_TO_ENCODER.put("http", HttpUrlEncoder.class);
         SCHEME_TO_ENCODER.put("https", HttpUrlEncoder.class);
         SCHEME_TO_ENCODER.put("urn:uuid", UuidUrnEncoder.class);

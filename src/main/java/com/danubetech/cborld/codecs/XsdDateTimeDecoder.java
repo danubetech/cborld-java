@@ -4,7 +4,6 @@ import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 import com.google.api.client.util.DateTime;
 
-import java.util.Date;
 import java.util.List;
 
 public class XsdDateTimeDecoder extends AbstractCborLdDecoder<String> {

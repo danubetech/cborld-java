@@ -10,7 +10,9 @@ public class CborLdException extends RuntimeException {
         ERR_UNKNOWN_CBORLD_TERM,
         ERR_UNKNOWN_CBORLD_TERM_ID,
         ERR_INVALID_ENCODED_CONTEXT
-    };
+    }
+
+    ;
 
     private CborLdError cborLdError;
 

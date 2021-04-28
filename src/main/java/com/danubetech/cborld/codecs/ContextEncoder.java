@@ -31,7 +31,7 @@ public class ContextEncoder extends AbstractCborLdEncoder<String> {
 
     @Override
     public EncodedBytes encode() {
-        if (! (this.value instanceof String)) {
+        if (!(this.value instanceof String)) {
             return null;
         }
         Map<String, Integer> appContextMap = this.transformer.appContextMap;

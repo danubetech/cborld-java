@@ -19,7 +19,7 @@ public class MultibaseDecoder extends AbstractCborLdDecoder<String> {
 
     @Override
     public String decode() {
-        if (! (this.value instanceof byte[])) {
+        if (!(this.value instanceof byte[])) {
             return null;
         }
         return this.decodeInternal();

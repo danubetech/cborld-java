@@ -192,7 +192,7 @@ public class Decompressor extends Transformer {
 
             // check for undefined term
             Object def = termMap.get(term);
-            if (def == null && ! (term.startsWith("@") && Keywords.KEYWORDS.containsKey(term))) {
+            if (def == null && !(term.startsWith("@") && Keywords.KEYWORDS.containsKey(term))) {
                 throw new CborLdException(CborLdException.CborLdError.ERR_UNKNOWN_CBORLD_TERM, "Unknown term \"" + term + "\" was detected in the CBOR-LD input.");
             }
 
@@ -212,7 +212,7 @@ public class Decompressor extends Transformer {
 
         // check for undefined term
         Object def = termMap.get(term);
-        if (def == null && ! (term.startsWith("@") && Keywords.KEYWORDS.containsKey(term))) {
+        if (def == null && !(term.startsWith("@") && Keywords.KEYWORDS.containsKey(term))) {
             throw new CborLdException(CborLdException.CborLdError.ERR_UNKNOWN_CBORLD_TERM, "Unknown term \"" + term + "\" was detected in the CBOR-LD input.");
         }
 

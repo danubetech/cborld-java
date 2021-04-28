@@ -3,11 +3,6 @@ package com.danubetech.cborld.codecs;
 import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 import com.google.api.client.util.DateTime;
-import com.upokecenter.cbor.CBORObject;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.Map;
 
 public class XsdDateDecoder extends AbstractCborLdDecoder<String> {
 

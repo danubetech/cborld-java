@@ -1,13 +1,11 @@
 package com.danubetech.cborld;
 
 import com.apicatalog.jsonld.loader.DocumentLoader;
-import com.danubetech.cborld.codecs.CborLdEncoder;
 import com.danubetech.cborld.codecs.*;
 import com.danubetech.cborld.util.TermInfo;
 import com.danubetech.cborld.util.TermInfoAndValue;
 import com.upokecenter.cbor.*;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Constructor;

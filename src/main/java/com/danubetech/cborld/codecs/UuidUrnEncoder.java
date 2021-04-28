@@ -4,9 +4,8 @@ import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 import com.upokecenter.cbor.CBORObject;
 
-import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.*;
+import java.util.UUID;
 
 public class UuidUrnEncoder extends AbstractCborLdEncoder<String> {
 

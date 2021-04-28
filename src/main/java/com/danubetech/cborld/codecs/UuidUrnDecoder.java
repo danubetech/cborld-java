@@ -3,7 +3,6 @@ package com.danubetech.cborld.codecs;
 import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 
-import java.io.IOException;
 import java.util.List;
 
 public class UuidUrnDecoder extends AbstractCborLdDecoder<String> {
@@ -20,7 +19,7 @@ public class UuidUrnDecoder extends AbstractCborLdDecoder<String> {
 
     @Override
     public String decode() {
-        if (! (this.value instanceof List<?>)) return null;
+        if (!(this.value instanceof List<?>)) return null;
         List<?> value = (List<?>) this.value;
         if (value.size() == 2 && (value.get(0) instanceof String || value.get(1) instanceof byte[])) {
             return this.decodeInternal();

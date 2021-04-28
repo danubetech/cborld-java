@@ -5,9 +5,6 @@ import com.danubetech.cborld.util.TermInfo;
 import com.google.api.client.util.DateTime;
 import com.upokecenter.cbor.CBORObject;
 
-import java.io.IOException;
-import java.util.Map;
-
 public class XsdDateTimeEncoder extends AbstractCborLdEncoder<String> {
 
     public XsdDateTimeEncoder(String value, Transformer transformer, TermInfo termInfo) {
@@ -20,7 +17,7 @@ public class XsdDateTimeEncoder extends AbstractCborLdEncoder<String> {
         int millisecondIndex = this.value.indexOf('.');
         if (millisecondIndex == -1) {
             String expectedDate = new DateTime(secondsSinceEpoch * 1000).toStringRfc3339().replace(".000Z", "Z");
-            if (! this.value.equals(expectedDate)) {
+            if (!this.value.equals(expectedDate)) {
                 // compression would be lossy, do not compress
                 return new EncodedBytes(CBORObject.FromObject(this.value).EncodeToBytes());
             }
@@ -30,7 +27,7 @@ public class XsdDateTimeEncoder extends AbstractCborLdEncoder<String> {
 
         int milliseconds = Integer.parseInt(this.value.substring(millisecondIndex + 1).replaceAll("[^\\d]", ""), 10);
         String expectedDate = new DateTime(secondsSinceEpoch * 1000 + milliseconds).toStringRfc3339();
-        if (! this.value.equals(expectedDate)) {
+        if (!this.value.equals(expectedDate)) {
             // compression would be lossy, do not compress
             return new EncodedBytes(CBORObject.FromObject(this.value).EncodeToBytes());
         }
@@ -44,7 +41,7 @@ public class XsdDateTimeEncoder extends AbstractCborLdEncoder<String> {
 
     @Override
     public EncodedBytes encode() {
-        if (! this.value.contains("T")) {
+        if (!this.value.contains("T")) {
             // no time included, cannot compress
             return null;
         }

@@ -1,14 +1,16 @@
 package com.danubetech.cborld;
 
 import com.apicatalog.jsonld.JsonLdError;
-import com.apicatalog.jsonld.document.Document;
 import com.apicatalog.jsonld.document.JsonDocument;
 import com.apicatalog.jsonld.loader.DocumentLoader;
-import com.danubetech.cborld.util.*;
+import com.danubetech.cborld.util.Aliases;
+import com.danubetech.cborld.util.Context;
+import com.danubetech.cborld.util.TermInfo;
+import com.danubetech.cborld.util.TermInfoAndValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.json.*;
-import jakarta.json.stream.JsonGenerator;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 
 import java.io.StringWriter;
 import java.net.URI;
@@ -201,7 +203,7 @@ public abstract class Transformer {
         typeTerms.add("@type");
         typeTerms.addAll(aliases.type);
         for (String term : typeTerms) {
-            Object types = ((Map<String, Object>) obj).get(term);
+            Object types = obj.get(term);
             if (types instanceof List) {
                 totalTypes.addAll((List<String>) types);
             } else {

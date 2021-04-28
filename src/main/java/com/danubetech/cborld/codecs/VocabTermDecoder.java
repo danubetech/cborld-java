@@ -3,9 +3,7 @@ package com.danubetech.cborld.codecs;
 import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 public class VocabTermDecoder extends AbstractCborLdDecoder<String> {
 

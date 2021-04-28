@@ -1,7 +1,6 @@
 package com.danubetech.cborld;
 
 import com.apicatalog.jsonld.loader.DocumentLoader;
-import com.upokecenter.cbor.CBOREncodeOptions;
 import com.upokecenter.cbor.CBORObject;
 
 import java.util.HashMap;

@@ -5,11 +5,8 @@ import com.danubetech.cborld.util.TermInfo;
 import com.upokecenter.cbor.CBORObject;
 import io.leonard.Base58;
 
-import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class Base58DidUrlEncoder extends AbstractCborLdEncoder<String> {
 

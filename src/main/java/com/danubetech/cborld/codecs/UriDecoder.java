@@ -3,17 +3,17 @@ package com.danubetech.cborld.codecs;
 import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URI;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class UriDecoder extends AbstractCborLdDecoder<String> {
 
     public static final Map<Integer, Class<? extends CborLdDecoder<String>>> SCHEME_ID_TO_ENCODER;
 
     static {
-        SCHEME_ID_TO_ENCODER = new HashMap<> ();
+        SCHEME_ID_TO_ENCODER = new HashMap<>();
         SCHEME_ID_TO_ENCODER.put(1, HttpUrlDecoder.class);
         SCHEME_ID_TO_ENCODER.put(2, HttpUrlDecoder.class);
         SCHEME_ID_TO_ENCODER.put(3, UuidUrnDecoder.class);
@@ -31,7 +31,7 @@ public class UriDecoder extends AbstractCborLdDecoder<String> {
 
     @Override
     public String decode() {
-        if ((! (this.value instanceof List<?>)) || ((List<?>) this.value).size() > 1) {
+        if ((!(this.value instanceof List<?>)) || ((List<?>) this.value).size() > 1) {
             return null;
         }
 

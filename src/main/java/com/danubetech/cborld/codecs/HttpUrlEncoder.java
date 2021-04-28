@@ -4,8 +4,6 @@ import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 import com.upokecenter.cbor.CBORObject;
 
-import java.io.IOException;
-
 public class HttpUrlEncoder extends AbstractCborLdEncoder<String> {
 
     public HttpUrlEncoder(String value, Transformer transformer, TermInfo termInfo) {

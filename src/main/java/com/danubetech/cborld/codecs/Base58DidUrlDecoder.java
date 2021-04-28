@@ -4,7 +4,6 @@ import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 import io.leonard.Base58;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,12 +42,12 @@ public class Base58DidUrlDecoder extends AbstractCborLdDecoder<String> {
 
     @Override
     public String decode() {
-        if (! (this.value instanceof List<?>)) return null;
+        if (!(this.value instanceof List<?>)) return null;
         List<?> value = (List<?>) this.value;
-        if (! (value.size() > 1 && value.size() <= 3)) {
+        if (!(value.size() > 1 && value.size() <= 3)) {
             return null;
         }
-        if (! ID_TO_SCHEME.containsKey(((Number) value.get(0)).intValue())) {
+        if (!ID_TO_SCHEME.containsKey(((Number) value.get(0)).intValue())) {
             return null;
         }
         return this.decodeInternal();

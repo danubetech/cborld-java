@@ -10,6 +10,7 @@ public interface CborLdEncoder<T> {
 
     public static class EncodedBytes {
         public byte[] bytes;
+
         public EncodedBytes(byte[] bytes) {
             this.bytes = bytes;
         }

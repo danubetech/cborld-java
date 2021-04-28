@@ -4,7 +4,6 @@ import com.danubetech.cborld.CborLdException;
 import com.danubetech.cborld.Transformer;
 import com.danubetech.cborld.util.TermInfo;
 
-import java.io.IOException;
 import java.util.Map;
 
 public class ContextDecoder extends AbstractCborLdDecoder<Object> {
@@ -25,7 +24,7 @@ public class ContextDecoder extends AbstractCborLdDecoder<Object> {
 
     private Object decodeInternal(Map<Integer, String> reverseAppContextMap) {
         // handle uncompressed context
-        if (! (this.value instanceof Number)) {
+        if (!(this.value instanceof Number)) {
             return mapToObject(this.value);
         }
 
