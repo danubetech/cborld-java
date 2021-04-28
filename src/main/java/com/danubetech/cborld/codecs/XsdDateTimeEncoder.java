@@ -28,7 +28,7 @@ public class XsdDateTimeEncoder extends AbstractCborLdEncoder<String> {
             return new EncodedBytes(secondsCBORObject.EncodeToBytes());
         }
 
-        int milliseconds = Integer.parseInt(this.value.substring(millisecondIndex + 1), 10);
+        int milliseconds = Integer.parseInt(this.value.substring(millisecondIndex + 1).replaceAll("[^\\d]", ""), 10);
         String expectedDate = new DateTime(secondsSinceEpoch * 1000 + milliseconds).toStringRfc3339();
         if (! this.value.equals(expectedDate)) {
             // compression would be lossy, do not compress
