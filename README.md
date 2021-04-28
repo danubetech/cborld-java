@@ -50,7 +50,7 @@ Example code:
 
 Example QR code:
 
-<img align="left" src="https://raw.githubusercontent.com/danubetech/cborld-java/main/docs/example-qrcode.png?token=AACHA7NQWXYQ22RAQJBF2HLARFJPK">
+https://github.com/danubetech/cborld-java/blob/main/docs/example-qrcode.png
 
 ## About
 
