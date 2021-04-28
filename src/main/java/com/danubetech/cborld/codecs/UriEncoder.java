@@ -46,7 +46,7 @@ public class UriEncoder extends AbstractCborLdEncoder<String> {
 
     private static <T> CborLdEncoder<T> createEncoder(Class<? extends CborLdEncoder<T>> cl, T value, Transformer transformer, TermInfo termInfo) {
         try {
-            return cl.getConstructor(value.getClass(), Transformer.class, TermInfo.class).newInstance(value, transformer, termInfo);
+            return cl.getConstructor(String.class, Transformer.class, TermInfo.class).newInstance(value, transformer, termInfo);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
             throw new RuntimeException("Cannot instantiate encoder " + cl.getName() + ": " + ex.getMessage(), ex);
         }

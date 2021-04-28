@@ -31,7 +31,7 @@ public class UriDecoder extends AbstractCborLdDecoder<String> {
 
     @Override
     public String decode() {
-        if ((!(this.value instanceof List<?>)) || ((List<?>) this.value).size() > 1) {
+        if (!(this.value instanceof List<?> && ((List<?>) this.value).size() > 1)) {
             return null;
         }
 
@@ -42,7 +42,7 @@ public class UriDecoder extends AbstractCborLdDecoder<String> {
 
     private static <T> CborLdDecoder<T> createDecoder(Class<? extends CborLdDecoder<T>> cl, Object value, Transformer transformer, TermInfo termInfo) {
         try {
-            return cl.getConstructor(value.getClass(), Transformer.class, TermInfo.class).newInstance(value, transformer, termInfo);
+            return cl.getConstructor(Object.class, Transformer.class, TermInfo.class).newInstance(value, transformer, termInfo);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
             throw new RuntimeException("Cannot instantiate decoder " + cl.getName() + ": " + ex.getMessage(), ex);
         }

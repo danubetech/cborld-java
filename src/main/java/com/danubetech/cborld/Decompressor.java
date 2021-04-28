@@ -220,7 +220,7 @@ public class Decompressor extends Transformer {
     }
 
     @Override
-    protected void transformObjectId(Map<String, Object> obj, Map<Integer, Object> transformMap, TermInfo termInfo, String value) {
+    protected void transformObjectId(Map<String, Object> obj, Map<Integer, Object> transformMap, TermInfo termInfo, Object value) {
         Object decoded = new UriDecoder(value).decode();
         obj.put(termInfo.term, decoded != null ? decoded : value);
     }
@@ -232,8 +232,8 @@ public class Decompressor extends Transformer {
         List values = Boolean.TRUE.equals(plural) ? (List) value : Collections.singletonList(value);
         List entries = new ArrayList<>();
         for (Object ivalue : values) {
-            Object decoded = new VocabTermDecoder(value, this).decode();
-            entries.add(decoded != null ? decoded : value);
+            Object decoded = new VocabTermDecoder(ivalue, this).decode();
+            entries.add(decoded != null ? decoded : ivalue);
         }
         obj.put(term, Boolean.TRUE.equals(plural) ? entries : entries.get(0));
     }
@@ -244,7 +244,7 @@ public class Decompressor extends Transformer {
         CborLdDecoder<String> decoder = null;
         if (decoderClass != null) {
             try {
-                Constructor<? extends CborLdDecoder<String>> constructor = decoderClass.getConstructor(value.getClass(), Transformer.class, TermInfo.class);
+                Constructor<? extends CborLdDecoder<String>> constructor = decoderClass.getConstructor(Object.class, Transformer.class, TermInfo.class);
                 decoder = constructor.newInstance(value, this, termInfo);
             } catch (NoSuchMethodException ex) {
                 return false;

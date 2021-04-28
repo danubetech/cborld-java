@@ -120,9 +120,9 @@ public class Compressor extends Transformer {
     }
 
     @Override
-    public void transformObjectId(Map<String, Object> obj, Map<Integer, Object> transformMap, TermInfo termInfo, String value) {
+    public void transformObjectId(Map<String, Object> obj, Map<Integer, Object> transformMap, TermInfo termInfo, Object value) {
         Integer termId = termInfo != null ? termInfo.termId : null;
-        CborLdEncoder.EncodedBytes encoded = new UriEncoder(value, this, termInfo).encode();
+        CborLdEncoder.EncodedBytes encoded = new UriEncoder((String) value, this, termInfo).encode();
         transformMap.put(termId, encoded != null ? encoded : value);
     }
 

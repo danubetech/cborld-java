@@ -11,13 +11,14 @@ public class XsdDateTimeEncoder extends AbstractCborLdEncoder<String> {
         super(value, transformer, termInfo);
     }
 
-    private EncodedBytes encodeInternal(long parsed) {
+    private EncodedBytes encodeInternal(DateTime parsedDateTime) {
+        long parsed = parsedDateTime.getValue();
         long secondsSinceEpoch = (long) Math.floor(((double) parsed) / 1000);
         CBORObject secondsCBORObject = CBORObject.FromObject(secondsSinceEpoch);
         int millisecondIndex = this.value.indexOf('.');
         if (millisecondIndex == -1) {
-            String expectedDate = new DateTime(secondsSinceEpoch * 1000).toStringRfc3339().replace(".000Z", "Z");
-            if (!this.value.equals(expectedDate)) {
+            String expectedDate = new DateTime(secondsSinceEpoch * 1000, parsedDateTime.getTimeZoneShift()).toStringRfc3339().replace(".000Z", "Z");
+                if (!this.value.equals(expectedDate)) {
                 // compression would be lossy, do not compress
                 return new EncodedBytes(CBORObject.FromObject(this.value).EncodeToBytes());
             }
@@ -50,7 +51,6 @@ public class XsdDateTimeEncoder extends AbstractCborLdEncoder<String> {
             // no date parsed, cannot compress
             return null;
         }
-        long parsed = parsedDateTime.getValue();
-        return this.encodeInternal(parsed);
+        return this.encodeInternal(parsedDateTime);
     }
 }

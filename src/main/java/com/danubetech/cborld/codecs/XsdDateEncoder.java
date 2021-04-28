@@ -11,9 +11,10 @@ public class XsdDateEncoder extends AbstractCborLdEncoder<String> {
         super(value, transformer, termInfo);
     }
 
-    private EncodedBytes encodeInternal(long parsed) {
+    private EncodedBytes encodeInternal(DateTime parsedDateTime) {
+        long parsed = parsedDateTime.getValue();
         long secondsSinceEpoch = (long) Math.floor(((double) parsed) / 1000);
-        String dateString = new DateTime(parsed * 1000).toStringRfc3339();
+        String dateString = new DateTime(parsed * 1000, parsedDateTime.getTimeZoneShift()).toStringRfc3339();
         String expectedDate = dateString.substring(0, dateString.indexOf('T'));
         if (!this.value.equals(expectedDate)) {
             // compression would be lossy, do not compress
@@ -33,7 +34,6 @@ public class XsdDateEncoder extends AbstractCborLdEncoder<String> {
             // no date parsed, cannot compress
             return null;
         }
-        long parsed = parsedDateTime.getValue();
-        return this.encodeInternal(parsed);
+        return this.encodeInternal(parsedDateTime);
     }
 }

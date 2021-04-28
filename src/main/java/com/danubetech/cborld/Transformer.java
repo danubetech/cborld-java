@@ -77,7 +77,7 @@ public abstract class Transformer {
 
             // transform `@id`
             if ("@id".equals(term) || aliases.id.contains(term)) {
-                this.transformObjectId(obj, transformMap, termInfo, (String) value);
+                this.transformObjectId(obj, transformMap, termInfo, value);
                 continue;
             }
 
@@ -339,7 +339,7 @@ public abstract class Transformer {
 
         // process context keys in sorted order to ensure term IDs are assigned
         // consistently
-        List<String> keys = ((Map<String, Object>) context).keySet().stream().sorted().collect(Collectors.toCollection(ArrayList::new));
+        List<String> keys = context.keySet().stream().sorted().collect(Collectors.toCollection(ArrayList::new));
         for (String key : keys) {
             Object def = ((Map<String, Object>) context).get(key);
             if (def == null) {
@@ -449,7 +449,7 @@ public abstract class Transformer {
     protected abstract List<TermInfoAndValue> getEntries(Map<String, Object> obj, Map<Integer, Object> transformMap, Transformer
             transformer, Map<String, Object> termMap);
 
-    protected abstract void transformObjectId(Map<String, Object> obj, Map<Integer, Object> transformMap, TermInfo termInfo, String value);
+    protected abstract void transformObjectId(Map<String, Object> obj, Map<Integer, Object> transformMap, TermInfo termInfo, Object value);
 
     protected abstract void transformObjectType(Map<String, Object> obj, Map<Integer, Object> transformMap, TermInfo
             termInfo, Object value);

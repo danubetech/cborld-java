@@ -26,8 +26,8 @@ public class XsdDateTimeDecoder extends AbstractCborLdDecoder<String> {
         }
         if (this.value instanceof List &&
                 ((List<Object>) this.value).size() == 2 &&
-                (((List<Object>) this.value).get(0) instanceof Number) ||
-                (((List<Object>) this.value).get(1) instanceof Number)) {
+                ((((List<Object>) this.value).get(0) instanceof Number) ||
+                (((List<Object>) this.value).get(1) instanceof Number))) {
             return this.decodeInternal();
         }
         return null;
