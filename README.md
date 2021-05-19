@@ -55,3 +55,9 @@ https://github.com/danubetech/cborld-java/blob/main/docs/example-qrcode.png
 ## About
 
 Danube Tech - https://danubetech.com/
+
+<br clear="left" />
+
+<img align="left" src="https://raw.githubusercontent.com/danubetech/cborld-java/master/docs/logo-ngi-essiflab.png" width="115">
+
+Supported by [ESSIF-Lab](https://essif-lab.eu/), which is made possible with financial support from the European Commission's [Next Generation Internet](https://ngi.eu/) programme.
