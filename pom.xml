@@ -12,7 +12,7 @@
 	<scm>
 		<url>https://github.com/danubetech/cborld-java</url>
 		<connection>scm:git:https://github.com/danubetech/cborld-java.git</connection>
-		<developerConnection>scm:git:https://github.com:danubetech/cborld-java.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/danubetech/cborld-java.git</developerConnection>
 	</scm>
 
 	<issueManagement>
