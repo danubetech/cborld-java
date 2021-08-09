@@ -18,7 +18,7 @@ jobs:
       - name: Import Secrets
         uses: hashicorp/vault-action@v2.3.0
         with:
-          url: https://vault.danubetech.com
+          url: https://vault-ci.danubetech.com
           token: ${{ secrets.CI_SECRET_READER_PERIODIC_TOKEN }}
           caCertificate: ${{ secrets.VAULTCA }}
           secrets: |
