@@ -4,14 +4,14 @@
 	<groupId>com.danubetech</groupId>
 	<artifactId>cborld-java</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<name>cborld-java</name>
 
 	<scm>
 		<url>https://github.com/danubetech/cborld-java</url>
 		<connection>scm:git:https://github.com/danubetech/cborld-java.git</connection>
 		<developerConnection>scm:git:https://github.com/danubetech/cborld-java.git</developerConnection>
-		<tag>1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
