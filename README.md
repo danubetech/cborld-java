@@ -24,7 +24,7 @@ Dependency:
 	<dependency>
 		<groupId>com.danubetech</groupId>
 		<artifactId>cborld-java</artifactId>
-		<version>0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</dependency>
 
 ## Example
